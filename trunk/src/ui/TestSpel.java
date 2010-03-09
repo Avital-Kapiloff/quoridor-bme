@@ -15,10 +15,14 @@ public static void main(String args[]){
 	case 2: dc.toonBeschikbareKleuren();break;
 	case 3: System.out.println("geef de spelernaam in");String naam = sc.next(); System.out.println("geef het nummer van het kleur");int kleur = sc.nextInt();dc.voegSpelerToe(kleur, naam);
 	case 4: dc.startSpel();break;
-	case 5: dc.toonBord();
+	case 5: dc.toonBord();break;
 }
 		
 
+}
+
+public static void toon(String text){
+	System.out.println(text);
 }
 public static void toonMenu(String items){
 	String menu="#####################menu#######################\n";
