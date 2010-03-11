@@ -1,33 +1,15 @@
-<<<<<<< .mine
 import java.util.*;
-=======
-package domein;
-import ui.TestSpel;
->>>>>>> .r8
 
 public class Spel {
-	private int aantalSpelers;
-	public int verkregenRij, verkregenKolom;
-	private int[] beschikbareKleuren;
-	Spelbord spelbord;
 	
 	public Spel(int aantalSpelers){
-		this.aantalSpelers = aantalSpelers;		
 		
 	}
 	
-<<<<<<< .mine
 	public int aantalSpelers;
 	public ArrayList beschikbareKleuren;
-=======
-
->>>>>>> .r8
 	
-<<<<<<< .mine
 	Spelbord spelbord = new Spelbord(0,0); // hierin komen de rij/kolom (in volgorde) variabelen ;)
-=======
-
->>>>>>> .r8
 	
 	
 	
@@ -101,14 +83,9 @@ public class Spel {
 	}
 	
 	public int[][] toonBord(){
-
 		return spelbord.spelbordVeld;
 	}
 	
-
-	public void voegSpelerToe(int kleur, String naam){
-		Speler speler = new Speler(kleur,naam);
-	}
 
 }	
 
