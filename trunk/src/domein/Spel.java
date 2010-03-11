@@ -7,30 +7,33 @@ public class Spel {
 
 	
 	private int aantalSpelers;
-	private ArrayList beschikbareKleuren;
+	private List<String> beschikbareKleuren= new ArrayList<String>();
 	private Speler huidigeSpeler;
-	private ArrayList spelers;
+	private List<Speler> spelers;
 	
-	Speler speler1;
-	Speler speler2;
-	Speler speler3;
-	Speler speler4;
-	
-	Spelbord spelbord = new Spelbord(0,0); // hierin komen de rij/kolom (in volgorde) variabelen ;)
+	/*Speler speler1= new Speler();
+	Speler speler2= new Speler();
+	Speler speler3= new Speler();
+	Speler speler4= new Speler();
+	*/
+	private Spelbord spelbord;
+	private final int GROOTTE_BORD = 17;
 	
 	public Spel(int aantalSpelers){
 		setKleuren();
+		spelbord = new Spelbord(GROOTTE_BORD,GROOTTE_BORD); // hierin komen de rij/kolom (in volgorde) variabelen ;)
 	}
 	
 	//---------------------------------------------------------------
 	
-	public String toonBeschikbareKleuren(){
-		
-		String stringBeschikbareKleuren=new String();
-		for(int i=0;i<(beschikbareKleuren.size()-1);i++){
-			stringBeschikbareKleuren+=beschikbareKleuren.get(i) +", ";
+	public String toonBeschikbareKleuren()
+	{	
+		StringBuilder builder = new StringBuilder();
+		for(String kleur: beschikbareKleuren)
+		{
+			builder.append(kleur).append(", ");
 		}
-		return stringBeschikbareKleuren;
+		return builder.toString();
 	}
 	//---------------------------------------------------------------
 	
@@ -44,19 +47,22 @@ public class Spel {
 		 * .addAll() kan ook gebruikt worden maar .add(index, waarde) zal voorlopig gebruikt worden omdat het overzichtelijker is
 		 * */
 		
-		beschikbareKleuren.add(0, "Zwart");
-		beschikbareKleuren.add(1, "Geel");
-		beschikbareKleuren.add(2, "Rood");
-		beschikbareKleuren.add(3, "Groen");
+		beschikbareKleuren.add("Zwart");
+		beschikbareKleuren.add("Geel");
+		beschikbareKleuren.add("Rood");
+		beschikbareKleuren.add("Groen");
 		
 	}
 	//---------------------------------------------------------------
 	public void voegSpelerToe(String naam, int kleur){
+		
 		if(speler1.getNaam()==""){
 			speler1 = new Speler(naam,kleur); // na naam moet de kleurcode nog komen, uit debugblabla heb ik ze er nog niet bij gezet
+			spelbord.setPositie(startPositieBepalen()[0],startPositieBepalen()[1],1);
 		}else
 		if(speler2.getNaam()==""){
 			speler2 = new Speler(naam,kleur); 
+			spelbord.setPositie(startPositieBepalen()[0],startPositieBepalen()[1],1);
 		}else
 		if(speler3.getNaam()==""){
 			speler3 = new Speler(naam,kleur);
@@ -73,7 +79,7 @@ public class Spel {
 	public int[] startPositieBepalen(){
 				
 		int[] posReturn = new int[2];
-		int midden=((spelbord.bord.length-1)/2);
+		int midden=((spelbord.getBord().length-1)/2);
 		int midden2=midden*2;
 		/*
 		 * midden en midden2 wordt aangemaakt om minder rekenwerk uit te voeren
@@ -85,19 +91,19 @@ public class Spel {
 		
 			//String.valueOf(spelbord.bord[0][1]);
 		
-		if(spelbord.bord[0][midden] !=0){			//NOORD
+		if(spelbord.getBord()[0][midden] ==0){			//NOORD
 			posReturn[0]=0;
 			posReturn[1]=midden;
 		}else 
-			if(spelbord.bord[midden2][midden] !=0){	//ZUID
+			if(spelbord.getBord()[midden2][midden] ==0){	//ZUID
 			posReturn[0]=midden2;
 			posReturn[1]=midden;
 		}else 
-			if(spelbord.bord[midden][0] !=0){		//WEST
+			if(spelbord.getBord()[midden][0] ==0){		//WEST
 			posReturn[0]=midden;
 			posReturn[1]=0;
 		}else 
-			if(spelbord.bord[midden][midden2] !=0){	//OOST   laatste if is overbodig maar zal gebruikt worden voor tijdens het debuggen
+			if(spelbord.getBord()[midden][midden2] ==0){	//OOST   laatste if is overbodig maar zal gebruikt worden voor tijdens het debuggen
 			posReturn[0]=midden;
 			posReturn[1]=midden2;
 		}
@@ -112,11 +118,7 @@ public class Spel {
 	}
 	
 	public int[][] toonBord(){
-		return spelbord.bord;
-	}
-	
-	public void voegSpelerToe(int kleur, String naam){
-		Speler speler = new Speler(naam, kleur);
+		return spelbord.getBord();
 	}
 
 }	

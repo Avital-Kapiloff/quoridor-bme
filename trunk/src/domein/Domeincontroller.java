@@ -3,16 +3,18 @@ package domein;
 import ui.TestSpel;
 
 public class Domeincontroller {
-	Spel spel;
+	private Spel spel;
 
 public void startNieuwSpel(int aantalSpelers){
+	
 	spel = new Spel(aantalSpelers);
+	
 }
 public String toonBeschikbareKleuren(){
 	return spel.toonBeschikbareKleuren();
 }
-public void voegSpelerToe(int kleur, String naam){
-	spel.voegSpelerToe(kleur, naam);
+public void voegSpelerToe(String naam, int kleur){
+	spel.voegSpelerToe(naam, kleur);
 }
 public void startSpel(){
 	spel.startSpel();
@@ -21,5 +23,9 @@ public void startSpel(){
 public void toonBord(){
 	
 	TestSpel.toonBord(spel.toonBord());
+}
+public void verwijderKleur(int kleur) {
+	spel.verwijderKleur(kleur);
+	
 }
 }
