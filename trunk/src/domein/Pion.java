@@ -4,59 +4,36 @@ package domein;
 public class Pion
 {
 private int kleur;
-private int startPosX;
-private int startPosY;
-private String zijde;
+private int[][] positie;
 
 
 
-	public Pion(int kleur,int startPosX, int startPosY, String zijde)
+
+	public Pion(int kleur,int[][] positie)
 	{
 		setKleur(kleur);
-		setStartPosX(startPosX);
-		setStartPosY(startPosY);
-		setZijde(zijde);
+		setPositie(positie);
 	}
 	
 	public void setKleur(int kleur)
 	{
 		this.kleur = kleur;
 	}
-	
-	public void setStartPosX(int startPosX)
-	{
-		this.startPosX = startPosX;
+
+	public int[][] getPositie() {
+		return positie;
 	}
 
-	public void setStartPosY(int startPosY) 
-	{
-		this.startPosY = startPosY;
+	public void setPositie(int[][] positie) {
+		this.positie = positie;
 	}
 
-	public void setZijde(String zijde) 
-	{
-		this.zijde = zijde;
-	}
-
-	public int getKleur() 
-	{
+	public int getKleur() {
 		return kleur;
 	}
-
-	public int getStartPosX() 
-	{
-		return startPosX;
-	}
 	
-	public int getStartPosY() 
-	{
-		return startPosY;
-	}
+	
 
-	public String getZijde() 
-	{
-		return zijde;
-	}
 
 
 }
