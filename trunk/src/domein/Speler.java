@@ -1,17 +1,25 @@
 package domein;
 
 
-
-
 public class Speler 
 {
 	private String naam;
+	private int kleur;
 	
 	
-	public Speler(String naam)
+	public int getKleur() {
+		return kleur;
+	}
+
+	public void setKleur(int kleur) {
+		this.kleur = kleur;
+	}
+
+	public Speler(int kleur, String naam)
 	
 	{
 		setNaam(naam);
+		setKleur(kleur);
 		
 	}
 

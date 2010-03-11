@@ -1,5 +1,6 @@
 package domein;
 
+import ui.TestSpel;
 
 public class Domeincontroller {
 	Spel spel;
@@ -14,9 +15,11 @@ public void voegSpelerToe(int kleur, String naam){
 	spel.voegSpelerToe(kleur, naam);
 }
 public void startSpel(){
-	spel.StartSpel;
+	spel.startSpel();
 }
-public String[][] toonBord(){
-	spel.toonBord();
+
+public void toonBord(){
+	
+	TestSpel.toon(spel.toonBord().toString());
 }
 }
