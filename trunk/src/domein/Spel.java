@@ -1,15 +1,15 @@
+package domein;
+
 import java.util.*;
 
 public class Spel {
 	
-	public Spel(int aantalSpelers){
-		
-	}
+
 	
-	public int aantalSpelers;
-	public ArrayList beschikbareKleuren;
-	public Speler huidigeSpeler;
-	public ArrayList spelers;
+	private int aantalSpelers;
+	private ArrayList beschikbareKleuren;
+	private Speler huidigeSpeler;
+	private ArrayList spelers;
 	
 	Speler speler1;
 	Speler speler2;
@@ -18,12 +18,15 @@ public class Spel {
 	
 	Spelbord spelbord = new Spelbord(0,0); // hierin komen de rij/kolom (in volgorde) variabelen ;)
 	
+	public Spel(int aantalSpelers){
+		setKleuren();
+	}
+	
 	//---------------------------------------------------------------
 	
 	public String toonBeschikbareKleuren(){
 		
 		String stringBeschikbareKleuren=new String();
-		
 		for(int i=0;i<(beschikbareKleuren.size()-1);i++){
 			stringBeschikbareKleuren+=beschikbareKleuren.get(i) +", ";
 		}
@@ -50,16 +53,16 @@ public class Spel {
 	//---------------------------------------------------------------
 	public void voegSpelerToe(String naam, int kleur){
 		if(speler1.getNaam()==""){
-			speler1 = new Speler(naam/*,kleur*/); // na naam moet de kleurcode nog komen, uit debugblabla heb ik ze er nog niet bij gezet
+			speler1 = new Speler(naam,kleur); // na naam moet de kleurcode nog komen, uit debugblabla heb ik ze er nog niet bij gezet
 		}else
 		if(speler2.getNaam()==""){
-			speler2 = new Speler(naam/*,kleur*/); 
+			speler2 = new Speler(naam,kleur); 
 		}else
 		if(speler3.getNaam()==""){
-			speler3 = new Speler(naam/*,kleur*/);
+			speler3 = new Speler(naam,kleur);
 		}else
 		if(speler4.getNaam()==""){
-			speler4 = new Speler(naam/*,kleur*/); 
+			speler4 = new Speler(naam,kleur); 
 		}
 		
 		
@@ -112,6 +115,9 @@ public class Spel {
 		return spelbord.bord;
 	}
 	
+	public void voegSpelerToe(int kleur, String naam){
+		Speler speler = new Speler(naam, kleur);
+	}
 
 }	
 

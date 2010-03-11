@@ -14,7 +14,7 @@ public static void main(String args[]){
 
 	switch (sc.nextInt()){
 	case 1: System.out.println("geef het aantal spelers");dc.startNieuwSpel(sc.nextInt());break;
-	case 2: dc.toonBeschikbareKleuren();break;
+	case 2: toon(dc.toonBeschikbareKleuren());break;
 	case 3: System.out.println("geef de spelernaam in");String naam = sc.next(); System.out.println("geef het nummer van het kleur");int kleur = sc.nextInt();dc.voegSpelerToe(kleur, naam);
 	case 4: dc.startSpel();break;
 	case 5: dc.toonBord();break;
@@ -25,7 +25,9 @@ public static void main(String args[]){
 		
 
 }
-
+public static void toonBord(int[][] bord){
+	
+}
 public static void toon(String text){
 	System.out.println(text);
 }
