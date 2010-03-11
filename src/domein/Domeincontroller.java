@@ -8,7 +8,7 @@ public class Domeincontroller {
 public void startNieuwSpel(int aantalSpelers){
 	spel = new Spel(aantalSpelers);
 }
-public int[] toonBeschikbareKleuren(){
+public String toonBeschikbareKleuren(){
 	return spel.toonBeschikbareKleuren();
 }
 public void voegSpelerToe(int kleur, String naam){
@@ -20,6 +20,6 @@ public void startSpel(){
 
 public void toonBord(){
 	
-	TestSpel.toon(spel.toonBord().toString());
+	TestSpel.toonBord(spel.toonBord());
 }
 }

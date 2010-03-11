@@ -15,11 +15,12 @@ public class Speler
 		this.kleur = kleur;
 	}
 
-	public Speler(int kleur, String naam)
+	public Speler(String naam, int kleur)
 	
 	{
 		setNaam(naam);
 		setKleur(kleur);
+		
 		
 	}
 
