@@ -3,8 +3,8 @@ package domein;
 
 public class Speler 
 {
-	private String naam;
-	private int kleur;
+	private String naam="";
+	private int kleur= 0;
 	
 	
 	public int getKleur() {
@@ -21,6 +21,8 @@ public class Speler
 		setNaam(naam);
 		setKleur(kleur);
 		
+	}
+	public Speler(){
 		
 	}
 
