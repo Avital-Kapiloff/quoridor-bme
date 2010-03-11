@@ -1,15 +1,20 @@
+package domein;
+import ui.TestSpel;
 
 public class Spel {
-	
-	public Spel(int aantalSpelers){
-		
-	}
-	
 	private int aantalSpelers;
 	public int verkregenRij, verkregenKolom;
 	private int[] beschikbareKleuren;
+	Spelbord spelbord;
 	
-	Spelbord spelbord = new Spelbord(verkregenRij,verkregenKolom);
+	public Spel(int aantalSpelers){
+		this.aantalSpelers = aantalSpelers;		
+		
+	}
+	
+
+	
+
 	
 	public int[] toonBeschikbareKleuren(){
 
@@ -27,9 +32,6 @@ public class Spel {
 	
 	public void voegSpelerToe(){
 		
-		if(speler1== null){
-			
-		}
 		
 	}
 	
@@ -48,6 +50,7 @@ public class Spel {
 	}
 	
 	public int[][] toonBord(){
+
 		return spelbord.spelbordVeld;
 	}
 	
@@ -58,5 +61,9 @@ public class Spel {
 		 * 
 		 * */
 	}
+	public void voegSpelerToe(int kleur, String naam){
+		Speler speler = new Speler(kleur,naam);
+	}
+
 }	
 
