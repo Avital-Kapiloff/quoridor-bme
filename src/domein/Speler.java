@@ -11,6 +11,7 @@ public class Speler
 		return kleur;
 	}
 
+	
 	public void setKleur(int kleur) {
 		this.kleur = kleur;
 	}
