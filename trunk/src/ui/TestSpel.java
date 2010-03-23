@@ -35,7 +35,7 @@ public static void voegToe(){
 		System.out.println("geef het nummer van het kleur");
 		int kleur = sc.nextInt();
 		dc.voegSpelerToe(naam,kleur);
-		//dc.verwijderKleur(kleur);
+		dc.verwijderKleur(kleur);
 		System.out.println("speler toegevoegd en kleur verwijderd");
 }
 }

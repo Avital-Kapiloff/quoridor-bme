@@ -19,7 +19,12 @@ public void voegSpelerToe(String naam, int kleur){
 public void startSpel(){
 	spel.startSpel();
 }
-
+public void plaatsMuur(){
+	
+}
+public void verplaatsPion(){
+	
+}
 public void toonBord(){
 	
 	TestSpel.toonBord(spel.toonBord());

@@ -12,8 +12,10 @@ public class Spel {
 	private List<Speler> spelers;
 	private int spelerTeller=0;
 	
+
 	Speler[] speler;
 	
+
 	private Spelbord spelbord;
 	private final int GROOTTE_BORD = 17;
 	
