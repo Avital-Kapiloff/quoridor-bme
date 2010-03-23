@@ -1,33 +1,47 @@
 package domein;
-
 import java.util.*;
 
-public class Spel {
-	
+import domein.Spelbord;
+import domein.Speler;
 
-	
+public class Spel {
+		
 	private int aantalSpelers;
 	private List<String> beschikbareKleuren= new ArrayList<String>();
 	private Speler huidigeSpeler;
 	private List<Speler> spelers;
+	private int spelerTeller=0;
 	
-	/*Speler speler1= new Speler();
-	Speler speler2= new Speler();
-	Speler speler3= new Speler();
-	Speler speler4= new Speler();
-	*/
+	Speler[] speler;
+	
 	private Spelbord spelbord;
 	private final int GROOTTE_BORD = 17;
 	
 	public Spel(int aantalSpelers){
 		setKleuren();
-		spelbord = new Spelbord(GROOTTE_BORD,GROOTTE_BORD); // hierin komen de rij/kolom (in volgorde) variabelen ;)
+		spelbord = new Spelbord(GROOTTE_BORD,GROOTTE_BORD);
 	}
-	
 	//---------------------------------------------------------------
 	
-	public String toonBeschikbareKleuren()
-	{	
+	
+		public void setHuidigeSpeler(){//behoort niet tot ITERATIE 1
+		/*dit kan ook korter verwezlijkt worden met ne teller
+		 *de huidige speler zal eerst de speler zijn die het laatst is, wordt gedeclareerd bij het toevoegen van spelers; 
+		 *	
+		 *	public Speler huidigeSpeler= speler[3]; 
+		 * 	teller=3
+		 * 	
+		 * if(teller==(aantalSpelers-1) && aantalSpelers==4){teller=0;}else if(aantalSpelers==4){++teller;}
+		 * if(teller==(aantalSpelers-1) && aantalSpelers==2){teller=0;}else if(aantalSpelers==2){++teller;}
+		 * huidigeSpeler=speler[teller];
+		 * 
+		 * */
+
+	}
+	//---------------------------------------------------------------
+	
+	public String toonBeschikbareKleuren(){
+		
 		StringBuilder builder = new StringBuilder();
 		for(String kleur: beschikbareKleuren)
 		{
@@ -55,23 +69,8 @@ public class Spel {
 	}
 	//---------------------------------------------------------------
 	public void voegSpelerToe(String naam, int kleur){
-		
-		if(speler1.getNaam()==""){
-			speler1 = new Speler(naam,kleur); // na naam moet de kleurcode nog komen, uit debugblabla heb ik ze er nog niet bij gezet
-			spelbord.setPositie(startPositieBepalen()[0],startPositieBepalen()[1],1);
-		}else
-		if(speler2.getNaam()==""){
-			speler2 = new Speler(naam,kleur); 
-			spelbord.setPositie(startPositieBepalen()[0],startPositieBepalen()[1],1);
-		}else
-		if(speler3.getNaam()==""){
-			speler3 = new Speler(naam,kleur);
-		}else
-		if(speler4.getNaam()==""){
-			speler4 = new Speler(naam,kleur); 
-		}
-		
-		
+		speler[spelerTeller] = new Speler(naam,kleur);
+		++spelerTeller;
 	}
 	
 	//---------------------------------------------------------------
@@ -120,6 +119,7 @@ public class Spel {
 	public int[][] toonBord(){
 		return spelbord.getBord();
 	}
+	
 
 }	
 
