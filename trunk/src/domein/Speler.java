@@ -4,19 +4,18 @@ package domein;
 public class Speler 
 {
 	private String naam="";
-	private int kleur= 0;
+	private String kleur="";
 	
 	
-	public int getKleur() {
+	public String getKleur() {
 		return kleur;
 	}
 
-	
-	public void setKleur(int kleur) {
+	public void setKleur(String kleur) {
 		this.kleur = kleur;
 	}
 
-	public Speler(String naam, int kleur)
+	public Speler(String naam, String kleur)
 	
 	{
 		setNaam(naam);
