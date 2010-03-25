@@ -8,7 +8,30 @@ import javax.swing.JButton;
 import javax.swing.WindowConstants;
 import javax.swing.JFrame;
 
+
+/**
+* This code was edited or generated using CloudGarden's Jigloo
+* SWT/Swing GUI Builder, which is free for non-commercial
+* use. If Jigloo is being used commercially (ie, by a corporation,
+* company or business for any purpose whatever) then you
+* should purchase a license for each developer using Jigloo.
+* Please visit www.cloudgarden.com for details.
+* Use of Jigloo implies acceptance of these licensing terms.
+* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
+* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
+* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
+*/
 public class SpelBordPanel extends javax.swing.JPanel {
+
+	{
+		//Set Look & Feel
+		try {
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	/**
 	* Auto-generated main method to display this 
@@ -37,7 +60,8 @@ public class SpelBordPanel extends javax.swing.JPanel {
 			this.setLayout(thisLayout);
 			this.setPreferredSize(new java.awt.Dimension(900, 900));
 			this.setSize(1000,1000);
-			
+			this.setBackground(new java.awt.Color(211,221,226));
+
 			zetBordKnop();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +79,7 @@ public class SpelBordPanel extends javax.swing.JPanel {
 					//mip=i+j;
 					if((i % 2)==0  && (j % 2)==0){ // ||(j % 2)!=0
 						test[i][j].setText("O");//"PIONVAK"
-						test[i][j].setForeground(Color.red);
+						test[i][j].setForeground(Color.yellow);
 						test[i][j].setBackground(Color.orange);
 						test[i][j].addMouseListener(null);
 					}else

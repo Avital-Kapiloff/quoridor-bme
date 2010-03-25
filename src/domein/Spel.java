@@ -12,17 +12,27 @@ public class Spel {
 	private List<Speler> spelers;
 	private int spelerTeller=0;
 	
-
 	Speler[] speler;
 	
-
 	private Spelbord spelbord;
 	private final int GROOTTE_BORD = 17;
 	
 	public Spel(int aantalSpelers){
 		setKleuren();
 		spelbord = new Spelbord(GROOTTE_BORD,GROOTTE_BORD);
+		setAantalSpelers(aantalSpelers);
+		speler = new Speler[aantalSpelers];
+		
 	}
+	
+	private void setAantalSpelers(int aantalSpelers){
+		this.aantalSpelers = aantalSpelers;
+	}
+	
+	public int getAantalSpelers(){
+		return aantalSpelers;
+	}
+	
 	//---------------------------------------------------------------
 	
 	
@@ -37,24 +47,28 @@ public class Spel {
 		 * if(teller==(aantalSpelers-1) && aantalSpelers==2){teller=0;}else if(aantalSpelers==2){++teller;}
 		 * huidigeSpeler=speler[teller];
 		 * 
-		 * */
+		 * **/
 
 	}
 	//---------------------------------------------------------------
 	
-	public String toonBeschikbareKleuren(){
+	public List<String> toonBeschikbareKleuren(){
+		return beschikbareKleuren;
 		
-		StringBuilder builder = new StringBuilder();
+		/* OUDE MANIER
+		 * 
+		 * StringBuilder builder = new StringBuilder();
 		for(String kleur: beschikbareKleuren)
 		{
 			builder.append(kleur).append(", ");
 		}
 		return builder.toString();
+		*/
 	}
 	//---------------------------------------------------------------
 	
-	public void verwijderKleur(int kleurCode) {
-		beschikbareKleuren.remove(kleurCode);
+	public void verwijderKleur(String kleur) {
+		beschikbareKleuren.remove(kleur);
 	}
 	
 	//---------------------------------------------------------------
@@ -63,15 +77,24 @@ public class Spel {
 		 * .addAll() kan ook gebruikt worden maar .add(index, waarde) zal voorlopig gebruikt worden omdat het overzichtelijker is
 		 * */
 		
-		beschikbareKleuren.add("Zwart");
+		beschikbareKleuren.add("Blauw");
 		beschikbareKleuren.add("Geel");
 		beschikbareKleuren.add("Rood");
 		beschikbareKleuren.add("Groen");
+		beschikbareKleuren.add("Cyan");
+		beschikbareKleuren.add("Grijs");
+		beschikbareKleuren.add("Magenta");
+		beschikbareKleuren.add("Oranje");
+		beschikbareKleuren.add("Roze");
+		
+		
 		
 	}
 	//---------------------------------------------------------------
-	public void voegSpelerToe(String naam, int kleur){
+	public void voegSpelerToe(String naam, String kleur){//kleur voorlopig naar String veranderd ipv int
 		speler[spelerTeller] = new Speler(naam,kleur);
+		//spelers.add(speler[spelerTeller]);
+		System.out.println(speler[spelerTeller].getNaam() + " | " + speler[spelerTeller].getKleur() );
 		++spelerTeller;
 	}
 	

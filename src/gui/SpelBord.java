@@ -24,6 +24,16 @@ import javax.swing.SwingUtilities;
 */
 public class SpelBord extends javax.swing.JFrame {
 
+	{
+		//Set Look & Feel
+		try {
+			javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
 
 	/**
 	* Auto-generated main method to display this JFrame

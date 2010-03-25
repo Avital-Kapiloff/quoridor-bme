@@ -59,9 +59,9 @@ public class StartLaadSpel extends javax.swing.JFrame {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			BorderLayout thisLayout = new BorderLayout();
 			getContentPane().setLayout(thisLayout);
-			this.setPreferredSize(new java.awt.Dimension(200,200));
+			this.setPreferredSize(new java.awt.Dimension(900,900));
 			pack();
-			this.setSize(329, 300);
+			this.setSize(900, 900);
 
 			{
 				

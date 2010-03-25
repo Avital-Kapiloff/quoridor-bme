@@ -161,8 +161,8 @@ public void vulKleur(){
 	{
 		cbom = new DefaultComboBoxModel(StartLaadSpel.dc.toonBeschikbareKleuren().toArray());
 		cboSpelerKleur[i].setModel(cbom);
-		StartLaadSpel.dc.verwijderKleur(cboSpelerKleur[i].getSelectedIndex());
-		System.out.println(cboSpelerKleur[i].getSelectedIndex());
+		StartLaadSpel.dc.verwijderKleur(cboSpelerKleur[i].getSelectedItem().toString());
+		//System.out.println(cboSpelerKleur[i].getSelectedIndex());
 		
 		//if(i==3){for(int j=0;j<StartLaadSpel.dc.getAantalSpelers();j++){cboSpelerKleur[j].setModel(cbom);}}
 	}
@@ -178,6 +178,13 @@ public void vulKleur(){
 }
 
 private void btnBeginSpelMouseClicked(MouseEvent evt) {
+	for(int i=0;i<StartLaadSpel.dc.getAantalSpelers();i++)
+	{
+		StartLaadSpel.dc.voegSpelerToe(txtSpelernamen[i].getText(), cboSpelerKleur[i].getSelectedItem().toString());
+		
+	}
+	
+	
 	for(int x=0;x<StartLaadSpel.dc.getAantalSpelers();x++)
 	{
 		lblSpelernamen[x].setVisible(false);
