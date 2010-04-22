@@ -8,7 +8,6 @@ public class Domeincontroller {
 public void startNieuwSpel(int aantalSpelers){
 	
 	spel = new Spel(aantalSpelers);
-	
 }
 public List<String> toonBeschikbareKleuren(){
 	return spel.toonBeschikbareKleuren();
@@ -31,6 +30,10 @@ public void verwijderKleur(String kleur) {
 
 public int getAantalSpelers(){
 	return spel.getAantalSpelers();
+}
+
+public void zetKleuren(){
+	spel.setKleuren();
 }
 
 }
