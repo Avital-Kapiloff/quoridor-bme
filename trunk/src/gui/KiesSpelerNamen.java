@@ -71,8 +71,8 @@ public class KiesSpelerNamen extends javax.swing.JPanel {
 	
 	private void initGUI() {
 		try {
-			setPreferredSize(new Dimension(500, 500));
-			setBounds(150,150,150,150);
+			setPreferredSize(new Dimension(900, 900));
+			setBounds(900,900,900,900);
 			this.setLayout(null);
 			{
 				lnlGeefNamenVoor = new JLabel();

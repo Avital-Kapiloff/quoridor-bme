@@ -1,4 +1,6 @@
 package domein;
+import gui.SpelBordVak;
+
 import java.util.*;
 
 import domein.Spelbord;
@@ -19,7 +21,7 @@ public class Spel {
 	
 	public Spel(int aantalSpelers){
 		setKleuren();
-		spelbord = new Spelbord(GROOTTE_BORD,GROOTTE_BORD);
+		spelbord = new Spelbord(GROOTTE_BORD);
 		setAantalSpelers(aantalSpelers);
 		speler = new Speler[aantalSpelers];
 		
@@ -54,16 +56,7 @@ public class Spel {
 	
 	public List<String> toonBeschikbareKleuren(){
 		return beschikbareKleuren;
-		
-		/* OUDE MANIER
-		 * 
-		 * StringBuilder builder = new StringBuilder();
-		for(String kleur: beschikbareKleuren)
-		{
-			builder.append(kleur).append(", ");
-		}
-		return builder.toString();
-		*/
+
 	}
 	//---------------------------------------------------------------
 	
@@ -73,18 +66,15 @@ public class Spel {
 	
 	//---------------------------------------------------------------
 	public void setKleuren(){
-		/*
-		 * .addAll() kan ook gebruikt worden maar .add(index, waarde) zal voorlopig gebruikt worden omdat het overzichtelijker is
-		 * */
 		
 		beschikbareKleuren.add("Blauw");
-		beschikbareKleuren.add("Geel");
-		beschikbareKleuren.add("Rood");
-		beschikbareKleuren.add("Groen");
 		beschikbareKleuren.add("Cyan");
+		beschikbareKleuren.add("Geel");
 		beschikbareKleuren.add("Grijs");
+		beschikbareKleuren.add("Groen");
 		beschikbareKleuren.add("Magenta");
 		beschikbareKleuren.add("Oranje");
+		beschikbareKleuren.add("Rood");
 		beschikbareKleuren.add("Roze");
 		
 		
@@ -103,7 +93,7 @@ public class Spel {
 	public int[] startPositieBepalen(){
 				
 		int[] posReturn = new int[2];
-		int midden=((spelbord.getBord().length-1)/2);
+		int midden=((spelbord.getSize()-1)/2);
 		int midden2=midden*2;
 		/*
 		 * midden en midden2 wordt aangemaakt om minder rekenwerk uit te voeren
@@ -115,19 +105,19 @@ public class Spel {
 		
 			//String.valueOf(spelbord.bord[0][1]);
 		
-		if(spelbord.getBord()[0][midden] ==0){			//NOORD
+		if(spelbord.getBord()[0][midden].isLeeg()){			//NOORD
 			posReturn[0]=0;
 			posReturn[1]=midden;
 		}else 
-			if(spelbord.getBord()[midden2][midden] ==0){	//ZUID
+			if(spelbord.getBord()[midden2][midden].isLeeg()){	//ZUID
 			posReturn[0]=midden2;
 			posReturn[1]=midden;
 		}else 
-			if(spelbord.getBord()[midden][0] ==0){		//WEST
+			if(spelbord.getBord()[midden][0].isLeeg()){		//WEST
 			posReturn[0]=midden;
 			posReturn[1]=0;
 		}else 
-			if(spelbord.getBord()[midden][midden2] ==0){	//OOST   laatste if is overbodig maar zal gebruikt worden voor tijdens het debuggen
+			if(spelbord.getBord()[midden][midden2].isLeeg()){	//OOST   laatste if is overbodig maar zal gebruikt worden voor tijdens het debuggen
 			posReturn[0]=midden;
 			posReturn[1]=midden2;
 		}
@@ -141,7 +131,7 @@ public class Spel {
 		
 	}
 	
-	public int[][] toonBord(){
+	public SpelBordVak[][] toonBord(){
 		return spelbord.getBord();
 	}
 	
