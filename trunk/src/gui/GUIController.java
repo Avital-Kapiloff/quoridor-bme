@@ -31,10 +31,13 @@ public class GUIController {
 	public static void main(String args[]){
 		List<String> formLijst = new ArrayList<String>();
 		
+		//dc.startNieuwSpel(2);
+		//toonBordz();
 		
 		formLijst.add("StartLaad");
-		formLijst.add("KiesAantalSpelers");
+		formLijst.add("KiesAantalSpelers"); //KiesAantalSpelers FancyPants
 		formLijst.add("KiesNamenEnKleuren");
+		formLijst.add("SpelbordSpeel");
 		
 		rc.setClassList(formLijst);
 		
@@ -117,6 +120,15 @@ public class GUIController {
 		}
 	} 
 	
+	public static void toonBordz(){
+		
+		for(int i=0;i<dc.toonBord().length;i++){
+			for(int j=0;j<dc.toonBord().length;j++){
+				//dc.toonBord()[i][j].setVakNr(i+j);
+				System.out.println(dc.toonBord()[i][j].isLeeg());
+			}	
+		}
+	}
 	
 	public static List<String> getAllKleurenVanSpel() {
 		return allKleurenVanSpel;

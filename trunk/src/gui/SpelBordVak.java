@@ -7,29 +7,47 @@ import javax.swing.JLabel;
 
 import domein.Vak;
 
-public class SpelBordVak extends Vak {
+public class SpelBordVak {
 	private JLabel vak=new JLabel();
 	private int vakNr;
+	private int[] vakPos = new int[2];
+	
+	public void setVakPos(int xPos, int yPos){
+		vakPos[0]=xPos;
+		vakPos[1]=yPos;
+	}
+	
+	public int[] getVakPos(){
+		return vakPos;
+	}
 	
 	public void pionVak(int xPos,int yPos){
 		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/vak.png")));
 		vak.setBounds(xPos, yPos, 50, 50);
+		setVakPos(xPos, yPos);
 	}
 	
 	public void muurVakHori(int xPos, int yPos){
 		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/muurVakHori.png")));
 		vak.setBounds(xPos, yPos, 50, 25);
+		setVakPos(xPos, yPos);
 	}
 	
 	public void muurVakVert(int xPos, int yPos){
 		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/muurVakVert.png")));
 		vak.setBounds(xPos, yPos, 25, 50);
+		setVakPos(xPos, yPos);
 	}
 	
 	public void muurVakMid(int xPos, int yPos){
 		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/muurVakMid.png")));
 		vak.setBounds(xPos, yPos, 25, 25);
+		setVakPos(xPos, yPos);
 	}
+	
+	/*public void plaatsBord(Container c){
+		c.add(vak);
+	}*/ //deze hoort in de controller te zitten?
 	
 	public void plaatsVak(Container c){
 		c.add(vak);
@@ -46,6 +64,7 @@ public class SpelBordVak extends Vak {
 	public int getVakNr(){
 		return vakNr;
 	}
+	
 	
 	/*{
 	SpelBordVak[] v = new SpelBordVak[2];

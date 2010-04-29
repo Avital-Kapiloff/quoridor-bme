@@ -1,25 +1,33 @@
 package domein;
 
-import gui.SpelBordVak;
-
 public class Spelbord {
 
 
 	private int size;
-	private SpelBordVak[][] spelBord;
+	private Vak[][] spelBord;
 	
 	public Spelbord(int size){
 		setSize(size);
-		spelBord = new SpelBordVak[getSize()][getSize()];
+		spelBord = new Vak[getSize()][getSize()];
 	}
 
 	public void genereerBord(){
-		int xPos=0;
+		
+		for(int i=0;i<getSize();++i){
+			for(int j=0;j<getSize();++j){
+				spelBord[i][j]= new Vak(i+j+(10*i)+(6*i));
+				if(i%2==0 && j%2==0){spelBord[i][j].zetTypePionVak();}
+				if(i%2==0 && j%2!=0 || i%2!=0 && j%2==0 || i%2!=0 && j%2!=0){spelBord[i][j].zetTypeMuurVak();}
+				spelBord[i][j].setVakNr(i+j+(16*i));//10 6
+			}
+		}
+		
+		/*int xPos=0;
 		int yPos=0;
 		
 		for(int i=0;i<getSize();++i){
 			for(int j=0;j<getSize();++j){
-				spelBord[i][j]= new SpelBordVak();
+				spelBord[i][j]= new Vak();
 				if(i%2==0 && j%2==0){spelBord[i][j].pionVak(xPos, yPos);spelBord[i][j].zetTypePionVak();}
 				if(i%2==0 && j%2!=0){spelBord[i][j].muurVakVert(xPos, yPos);spelBord[i][j].zetTypeMuurVak();}
 				if(i%2!=0 && j%2==0){spelBord[i][j].muurVakHori(xPos, yPos);spelBord[i][j].zetTypeMuurVak();}
@@ -29,7 +37,7 @@ public class Spelbord {
 			}
 			xPos=0;
 			yPos+=spelBord[i][0].vak().getHeight();
-		}
+		}*/
 	}
 	
 	public int getSize() {
@@ -40,7 +48,7 @@ public class Spelbord {
 		if(size>0 && size%2!=0){this.size = size;}else{this.size=17;}
 	}
 	
-	public SpelBordVak[][] getBord(){
+	public Vak[][] getBord(){
 		return spelBord;
 	}
 	
