@@ -62,8 +62,8 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			getContentPane().setLayout(null);
+			setTitle("Geef de namen in en kies een kleurtje!");
 			pack();
-			setSize(400, 300);
 			
 			{
 				lblGeefNamenVoor = new JLabel();
@@ -75,7 +75,10 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 			zetKiesSpelerNamen(gc.dc.getAantalSpelers());
 			gc.zetBEGINKleuren(cboSpelerKleur);
 			gc.zetCBOKleuren(cboSpelerKleur);
-			setVisible(true);
+			
+			this.setBounds(0, 0, 380, 250);
+			this.setLocation(new java.awt.Point(gc.getMiddelWidth(this.getWidth()), gc.getMiddelHeight(this.getHeight())));
+			this.setVisible(true);
 			
 			
 		} catch (Exception e) {
@@ -128,6 +131,11 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 				this.add(btnBeginSpel);
 				btnBeginSpel.setText("Begin Spel!");
 				btnBeginSpel.setBounds(35, boxAfstand, 284, 53);
+				btnBeginSpel.addMouseListener(new MouseAdapter() {
+					public void mouseClicked(MouseEvent evt) {
+						btnBeginSpelMouseClicked(evt);
+					}
+				});
 				btnBeginSpel.setEnabled(false);
 		
 	}
@@ -148,6 +156,16 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 		else
 		{btnBeginSpel.setEnabled(false);}
 		
+	}
+	
+	private void btnBeginSpelMouseClicked(MouseEvent evt) {
+		
+		for(int i=0;i<gc.dc.getAantalSpelers();i++){
+			gc.dc.voegSpelerToe(txtSpelernamen[i].getText(), cboSpelerKleur[i].getSelectedItem().toString());
+			//System.out.println(txtSpelernamen[i].getText() +"-" + cboSpelerKleur[i].getSelectedItem().toString());
+		}
+		gc.rc.setNextForm();
+		this.dispose();
 	}
 
 }

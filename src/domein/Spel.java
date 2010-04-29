@@ -10,10 +10,10 @@ public class Spel {
 		
 	private int aantalSpelers;
 	private List<String> beschikbareKleuren= new ArrayList<String>();
-	private Speler huidigeSpeler;
-	private List<Speler> spelers;
+	private Speler huidigeSpeler = new Speler();
+	//private List<Speler> spelers = new ArrayList<Speler>();
 	private int spelerTeller=0;
-	
+	private int tellerHuidigeSpeler=3;
 	Speler[] speler;
 	
 	private Spelbord spelbord;
@@ -22,6 +22,7 @@ public class Spel {
 	public Spel(int aantalSpelers){
 		setKleuren();
 		spelbord = new Spelbord(GROOTTE_BORD);
+		spelbord.genereerBord();
 		setAantalSpelers(aantalSpelers);
 		speler = new Speler[aantalSpelers];
 		
@@ -38,20 +39,13 @@ public class Spel {
 	//---------------------------------------------------------------
 	
 	
-		public void setHuidigeSpeler(){//behoort niet tot ITERATIE 1
-		/*dit kan ook korter verwezlijkt worden met ne teller
-		 *de huidige speler zal eerst de speler zijn die het laatst is, wordt gedeclareerd bij het toevoegen van spelers; 
-		 *	
-		 *	public Speler huidigeSpeler= speler[3]; 
-		 * 	teller=3
-		 * 	
-		 * if(teller==(aantalSpelers-1) && aantalSpelers==4){teller=0;}else if(aantalSpelers==4){++teller;}
-		 * if(teller==(aantalSpelers-1) && aantalSpelers==2){teller=0;}else if(aantalSpelers==2){++teller;}
-		 * huidigeSpeler=speler[teller];
-		 * 
-		 * **/
-
-	}
+		public void setHuidigeSpeler(){  	
+			if(tellerHuidigeSpeler>=(aantalSpelers-1)){tellerHuidigeSpeler=0;}else{++tellerHuidigeSpeler;}
+		  //if(teller==(aantalSpelers-1) && aantalSpelers==4){teller=0;}else if(aantalSpelers==4){++teller;}
+		 // if(teller==(aantalSpelers-1) && aantalSpelers==2){teller=0;}else if(aantalSpelers==2){++teller;}
+		  huidigeSpeler=speler[tellerHuidigeSpeler]; 
+		  System.out.println(huidigeSpeler.getNaam());
+		 }
 	//---------------------------------------------------------------
 	
 	public List<String> toonBeschikbareKleuren(){
@@ -83,8 +77,10 @@ public class Spel {
 	//---------------------------------------------------------------
 	public void voegSpelerToe(String naam, String kleur){//kleur voorlopig naar String veranderd ipv int
 		speler[spelerTeller] = new Speler(naam,kleur);
-		//spelers.add(speler[spelerTeller]);
-		System.out.println(speler[spelerTeller].getNaam() + " | " + speler[spelerTeller].getKleur() );
+		//spelers.add(new Speler(naam,kleur));
+		//System.out.println(speler[spelerTeller].getNaam() + " | " + speler[spelerTeller].getKleur() );
+		//System.out.println(spelers.get(spelerTeller).getNaam()+" ____ " +spelers.get(spelerTeller).getKleur());
+		//System.out.println(spelers.get(spelerTeller).getNaam());
 		++spelerTeller;
 	}
 	
@@ -131,7 +127,7 @@ public class Spel {
 		
 	}
 	
-	public SpelBordVak[][] toonBord(){
+	public Vak[][] toonBord(){
 		return spelbord.getBord();
 	}
 	

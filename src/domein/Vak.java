@@ -4,19 +4,25 @@ public class Vak {
 	private String vakType= new String();
 	private Boolean heeftPion = false;
 	private Boolean heeftMuur =false;
+	private int vakNr;
 	
-	public Vak(/*String vakType*/){
-		/*if(vakType.toLowerCase().equals("muur")){
-			zetTypeMuurVak();
-		}
-			else
-		{
-			zetTypePionVak();
-		}*/
+	public Vak(){}
+	
+	public Vak(int vakNr){
+		
+		setVakNr(vakNr);
 	}
 	
+	public int getVakNr() {
+		return vakNr;
+	}
+
+	public void setVakNr(int vakNr) {
+		this.vakNr = vakNr;
+	}
+
 	public Boolean isLeeg(){
-		return (heeftMuur)?true:(heeftPion)?true:false;
+		return (heeftMuur)?false:(heeftPion)?false:true;
 	}
 	
 	public void zetTypeMuurVak(){

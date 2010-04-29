@@ -19,9 +19,8 @@ public void startSpel(){
 	spel.startSpel();
 }
 
-public void toonBord(){
-	
-	//TestSpel.toonBord(spel.toonBord());
+public Vak[][] toonBord(){
+	return spel.toonBord();
 }
 public void verwijderKleur(String kleur) {
 	spel.verwijderKleur(kleur);
