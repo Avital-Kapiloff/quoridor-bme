@@ -51,7 +51,7 @@ public class KiesAantalSpelers extends javax.swing.JFrame {
 		try {
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			getContentPane().setLayout(null);
-			setTitle(gc.dc.getMessages().getString("CHOOSE_NUMBER"));
+			setTitle("Kies aantal spelers");
 			
 			/*{
 				layout = new JLabel();
@@ -102,8 +102,8 @@ public class KiesAantalSpelers extends javax.swing.JFrame {
 			{
 				lblKiesAantalSpelers = new JLabel();
 				getContentPane().add(lblKiesAantalSpelers);
-				lblKiesAantalSpelers.setText(gc.dc.getMessages().getString("CHOOSE_NUMBER_2"));
-				lblKiesAantalSpelers.setBounds(35, 46, 321, 25);
+				lblKiesAantalSpelers.setText("Kies de gewenste aantal spelers");
+				lblKiesAantalSpelers.setBounds(35, 46, 228, 25);
 				lblKiesAantalSpelers.setFont(new java.awt.Font("Segoe UI",0,16));
 			}
 			

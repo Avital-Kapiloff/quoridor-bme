@@ -5,8 +5,16 @@ public class Speler
 {
 	private String naam="";
 	private String kleur="";
+	private int muren = 10;
 	
-	
+	public int getMuren() {
+		return muren;
+	}
+
+	public void verminderMuren(){
+		--muren;
+	}
+
 	public String getKleur() {
 		return kleur;
 	}

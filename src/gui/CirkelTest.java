@@ -8,7 +8,10 @@ import javax.swing.SwingUtilities;
 
 public class CirkelTest extends javax.swing.JFrame {
 
-	DrawCircleInJFrame cc =new DrawCircleInJFrame("Roze");
+	Cirkel cc =new Cirkel("Roze");
+	
+	//Circles cc = new Circles();
+	
 	/**
 	* Auto-generated main method to display this JFrame
 	*/
@@ -39,7 +42,8 @@ public class CirkelTest extends javax.swing.JFrame {
 			setVisible(true);
 
 			getContentPane().add(cc);
-			cc.moveTo(250, 100);
+			
+			//cc.moveTo(250, 100);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

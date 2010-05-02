@@ -3,11 +3,10 @@ package gui;
 import java.awt.Component;
 
 import java.awt.Graphics;  
-import java.awt.Color;  
-
-import javax.swing.JLabel;
+import java.awt.Color;
+import javax.swing.JPanel;
    
- public class Cirkel extends JLabel  
+ public class Cirkel extends Component  
  {  
 	 
 	private int x, y;
@@ -25,6 +24,7 @@ import javax.swing.JLabel;
 	 	super.paint(g);  
   		g.setColor(getC());  
   		g.fillOval(x,y,SIZE,SIZE);
+  		
  	}  
 	
 
@@ -33,32 +33,32 @@ import javax.swing.JLabel;
 	}
 
 	public void setC(String kleur) {
-		kleur.toLowerCase();
-		if(kleur.equals("blauw")){
+		
+		if(kleur.toLowerCase().equals("blauw")){
      	c=Color.blue;
      }
-		if(kleur.equals("cyan")){
+		if(kleur.toLowerCase().equals("cyan")){
      	c=Color.cyan;
      }
-		if(kleur.equals("geel")){
+		if(kleur.toLowerCase().equals("geel")){
      	c=Color.yellow;
      }
-		if(kleur.equals("grijs")){
+		if(kleur.toLowerCase().equals("grijs")){
      	c=Color.gray;
      }
-		if(kleur.equals("groen")){
+		if(kleur.toLowerCase().equals("groen")){
      	c=Color.green;
      }
-		if(kleur.equals("magenta")){
+		if(kleur.toLowerCase().equals("magenta")){
      	c=Color.magenta;
      }
-		if(kleur.equals("oranje")){
+		if(kleur.toLowerCase().equals("oranje")){
      	c=Color.orange;
      }
-		if(kleur.equals("rood")){
+		if(kleur.toLowerCase().equals("rood")){
      	c=Color.red;
      }
-		if(kleur.equals("roze")){
+		if(kleur.toLowerCase().equals("roze")){
      	c=Color.pink;
      }
 
