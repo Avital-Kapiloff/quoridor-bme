@@ -24,6 +24,10 @@ public class Vak {
 	public Boolean isLeeg(){
 		return (heeftMuur)?false:(heeftPion)?false:true;
 	}
+	public void maakLeeg(){
+		heeftPion = false;
+		heeftMuur =false;
+	}
 	
 	public void zetTypeMuurVak(){
 		vakType="muur";

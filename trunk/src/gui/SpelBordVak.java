@@ -5,7 +5,7 @@ import java.awt.Container;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import domein.Vak;
+
 
 public class SpelBordVak {
 	private JLabel vak=new JLabel();
@@ -45,12 +45,19 @@ public class SpelBordVak {
 		setVakPos(xPos, yPos);
 	}
 	
+	public void vakSelectable(){
+		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/pionVakSelecteable.gif")));
+		}
+	public void vakNOTSelectable(){
+		vak.setIcon(new ImageIcon(getClass().getClassLoader().getResource("gui/vak.png")));
+	}
+	
 	/*public void plaatsBord(Container c){
 		c.add(vak);
 	}*/ //deze hoort in de controller te zitten?
 	
 	public void plaatsVak(Container c){
-		c.add(vak);
+		c.add(vak,0);
 	}
 	
 	public JLabel vak(){

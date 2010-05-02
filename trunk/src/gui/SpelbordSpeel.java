@@ -3,6 +3,7 @@ package gui;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
@@ -20,8 +21,7 @@ import javax.swing.SwingUtilities;
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
 public class SpelbordSpeel extends javax.swing.JFrame {
-	//Cirkel cc =new Cirkel("roze");
-	SpelBordPion[] speler = new SpelBordPion[2];
+	HarounsDebugger d = new HarounsDebugger();
 	GUIController gc = new GUIController();
 	SpelBordVak[][] spelbord = new SpelBordVak[gc.dc.toonBord().length][gc.dc.toonBord().length];
 	/**
@@ -59,10 +59,14 @@ public class SpelbordSpeel extends javax.swing.JFrame {
 							if(i%2==0 && j%2!=0){spelbord[i][j].muurVakVert(xPos, yPos);}
 							if(i%2!=0 && j%2==0){spelbord[i][j].muurVakHori(xPos, yPos);}
 							if(i%2!=0 && j%2!=0){spelbord[i][j].muurVakMid(xPos, yPos);}
+							spelbord[i][j].plaatsVak(getContentPane());
 							spelbord[i][j].setVakNr(i+j+(16*i));
 							xPos+=spelbord[i][j].vak().getWidth();
-							spelbord[i][j].plaatsVak(getContentPane());
+							
 							spelbord[i][j].vak().setName(String.valueOf(spelbord[i][j].getVakNr()));
+							
+							//d.p(spelbord[i][j].getVakNr()+"|"+spelbord[i][j].getVakPos()[0] +"*"+ spelbord[i][j].getVakPos()[1]);
+							
 							spelbord[i][j].vak().addMouseListener(new MouseAdapter() {
 								public void mouseClicked(MouseEvent evt) {
 									System.out.println(evt.getComponent().getName());
@@ -76,30 +80,78 @@ public class SpelbordSpeel extends javax.swing.JFrame {
 				
 			}	
 			
-			speler[0]= new SpelBordPion("Haroun", "groen");
-			speler[1]= new SpelBordPion("Mogly", "cyan");
+			//speler[0] = new SpelBordPion("Harountje", "Groen");
 			
-			//Cirkel Cv = new Cirkel("blauw");
-			
-			getContentPane().add(speler[0].getPion(),0);
-			getContentPane().add(speler[1].getPion(),0);
-			//getContentPane().add(Cv,0);
-			//System.out.println("-"+ko);
-			
-			//getContentPane().add(speler[0].getPion(),0);getContentPane().add(speler[1].getPion(),1);
+			//speler.verplaatsNaar(spelbord[0][8].getVakPos()[0], spelbord[0][8].getVakPos()[1]);
 			
 			
-			System.out.println(speler[1].getPion());
+		//	speler[0].getPion().addMouseListener(new MouseAdapter() {
+		//		public void mouseClicked(MouseEvent evt) {
+		//			verplaats(1);
+		//		}
+		//	});
+
+		//	speler[0].getPion().moveTo(spelbord[0][8].getVakPos()[0], spelbord[0][8].getVakPos()[1]);
+		//	speler[0].setVakNr(8);
+		//	speler[0].setPos(spelbord[0][8].getVakPos());
+			//JLabel dummy = new JLabel();
+			//dummy.setLocation(0, 0);
 			
-			speler[0].getPion().moveTo(spelbord[16][8].getVakPos()[0], spelbord[16][8].getVakPos()[1]);
-			speler[1].getPion().moveTo(spelbord[0][8].getVakPos()[0], spelbord[0][8].getVakPos()[1]);
-			//getContentPane().add(cc,0);
-			//cc.moveTo(spelbord[16][16].getVakPos()[0], spelbord[16][16].getVakPos()[1]);
+			SpelBordPion[] s = new SpelBordPion[9];
+			JLabel dummy = new JLabel();
 			
 			
+			s[0] = new SpelBordPion("Her", "rood");
+			s[1] = new SpelBordPion("GGer", "blauw");
+			s[2] = new SpelBordPion("azerty", "geel");
+			s[3] = new SpelBordPion("fdfdf", "cyan");
+			s[4] = new SpelBordPion("Her", "magenta");
+			s[5] = new SpelBordPion("GGer", "grijs");
+			s[6] = new SpelBordPion("azerty", "roze");
+			s[7] = new SpelBordPion("fdfdf", "oranje");
+			s[8] = new SpelBordPion("fdfdf", "groen");
+			
+			s[0].verplaatsNaar(0, 0);
+			s[1].verplaatsNaar(75, 75);
+			s[2].verplaatsNaar(150, 150);
+			s[3].verplaatsNaar(225, 225);
+			s[4].verplaatsNaar(275, 275);
+			s[5].verplaatsNaar(325, 325);
+			s[6].verplaatsNaar(400, 400);
+			s[7].verplaatsNaar(450, 450);
+			s[8].verplaatsNaar(500, 500);
+			
+			getContentPane().add(s[0].getPion(),0);
+			getContentPane().add(s[1].getPion(),0);
+			getContentPane().add(s[2].getPion(),0);
+			getContentPane().add(s[3].getPion(),0);
+			getContentPane().add(s[4].getPion(),0);
+			getContentPane().add(s[5].getPion(),0);
+			getContentPane().add(s[6].getPion(),0);
+			getContentPane().add(s[7].getPion(),0);
+			getContentPane().add(s[8].getPion(),0);
+			
+			getContentPane().add(dummy,0); // deze is voor de bug te overbruggen, moet altijd als het laatste geAdded worden
+			setPionPlaats(1);
+			
+			//s[3].verplaatsNaar(500, 500);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	public void setPionPlaats(int spelerNr){
+		
+		//System.out.println(spelbord[6][6].vak().getY());
+		
+		spelbord[0][6].vakSelectable();
+		spelbord[2][8].vakSelectable();
+		spelbord[0][10].vakSelectable();
+		//spelbord[speler[spelerNr-1].getVaknr()+34][speler[spelerNr-1].getVaknr()+2].vakSelectable();
+	}
+	
+	public void verplaats(int spelerNr){
+		//speler[spelerNr-1].getPion();
+	}
 }

@@ -18,7 +18,7 @@ public class Spelbord {
 				spelBord[i][j]= new Vak(i+j+(10*i)+(6*i));
 				if(i%2==0 && j%2==0){spelBord[i][j].zetTypePionVak();}
 				if(i%2==0 && j%2!=0 || i%2!=0 && j%2==0 || i%2!=0 && j%2!=0){spelBord[i][j].zetTypeMuurVak();}
-				spelBord[i][j].setVakNr(i+j+(16*i));//10 6
+				spelBord[i][j].setVakNr(i+j+((getSize()-1)*i));//10 6
 			}
 		}
 		

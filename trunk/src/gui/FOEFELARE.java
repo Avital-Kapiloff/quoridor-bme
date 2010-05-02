@@ -119,13 +119,19 @@ public class FOEFELARE extends javax.swing.JFrame {
 			}
 			*/
 			{
-				
+				SpelBordPion p = new SpelBordPion("blal", "rood");
+			getContentPane().add(p.getPion());
+				p.verplaatsNaar(500, 50);
+			
 				//System.out.println(spelbord[0][8].getVakPos()[0]);
 			}
-			this.setLocation(new java.awt.Point(gc.getMiddelWidth(this.getWidth()), gc.getMiddelHeight(this.getHeight())));
-			this.setVisible(true);
+			//this.setLocation(new java.awt.Point(gc.getMiddelWidth(this.getWidth()), gc.getMiddelHeight(this.getHeight())));
+			//this.setVisible(true);
 			
-			SpelBordPion sp = new SpelBordPion("Haroun", "Blauw");
+			
+			
+			
+			/*SpelBordPion sp = new SpelBordPion("Haroun", "Blauw");
 				//getContentPane().add(sp.getPion());
 				
 				this.getContentPane().add(sp.getPion());
@@ -142,7 +148,7 @@ public class FOEFELARE extends javax.swing.JFrame {
 				cc.setC("Blauw");
 				cc.setLocation(new java.awt.Point(50, 50));
 				System.out.println(cc);
-				
+				*/
 			//	System.out.println(spelbord[0][8].getVakPos()[0]);
 			//	sp.setPos(spelbord[0][8].getVakPos());
 			/*

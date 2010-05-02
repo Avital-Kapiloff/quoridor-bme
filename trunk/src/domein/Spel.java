@@ -1,5 +1,4 @@
 package domein;
-import gui.GUIController;
 import gui.SpelBordVak;
 
 import java.util.*;
@@ -15,22 +14,18 @@ public class Spel {
 	//private List<Speler> spelers = new ArrayList<Speler>();
 	private int spelerTeller=0;
 	private int tellerHuidigeSpeler=3;
-	private ResourceController rc;//tussen haakjes de keuze die meegegeven wordt in het startlaad paneel
-	
-	
 	Speler[] speler;
 	
 	private Spelbord spelbord;
 	private final int GROOTTE_BORD = 17;
 	
-	public Spel(int aantalSpelers,ResourceController rc){
-		this.rc = rc;
+	public Spel(int aantalSpelers){
 		setKleuren();
 		spelbord = new Spelbord(GROOTTE_BORD);
 		spelbord.genereerBord();
 		setAantalSpelers(aantalSpelers);
 		speler = new Speler[aantalSpelers];
-
+		
 	}
 	
 	private void setAantalSpelers(int aantalSpelers){
@@ -65,16 +60,16 @@ public class Spel {
 	
 	//---------------------------------------------------------------
 	public void setKleuren(){
-
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_BLUE"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_CYAN"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_YELLOW"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_GREY"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_GREEN"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_MAGENTA"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_ORANGE"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_RED"));
-		beschikbareKleuren.add(rc.getMessages().getString("COLOR_PINK"));
+		
+		beschikbareKleuren.add("Blauw");
+		beschikbareKleuren.add("Cyan");
+		beschikbareKleuren.add("Geel");
+		beschikbareKleuren.add("Grijs");
+		beschikbareKleuren.add("Groen");
+		beschikbareKleuren.add("Magenta");
+		beschikbareKleuren.add("Oranje");
+		beschikbareKleuren.add("Rood");
+		beschikbareKleuren.add("Roze");
 		
 		
 		
