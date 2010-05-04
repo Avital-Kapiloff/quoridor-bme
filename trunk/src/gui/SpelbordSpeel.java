@@ -7,28 +7,16 @@ import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
+import domein.Spel;
 import domein.Spelbord;
 import domein.SpelbordInterface;
 import domein.SpelbordVGUI;
 
-
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
 public class SpelbordSpeel extends javax.swing.JFrame{
-	SpelbordInterface sI = new SpelbordVGUI();
+	//SpelbordInterface sI = new Spel(4);
 	HarounsDebugger d = new HarounsDebugger();
 	GUIController gc = new GUIController();
-	SpelBordVak[][] spelbord = new SpelBordVak[17][17];//[gc.dc.toonBord().length][gc.dc.toonBord().length];
+	SpelBordVak[][] spelbord = new SpelBordVak[gc.dc.spelbordInterface.getBord().length][gc.dc.spelbordInterface.getBord().length];//[sI.getSize()][sI.getSize()];//[gc.dc.toonBord().length][gc.dc.toonBord().length];
 	
 	/**
 	* Auto-generated main method to display this JFrame
@@ -46,21 +34,30 @@ public class SpelbordSpeel extends javax.swing.JFrame{
 	public SpelbordSpeel() {
 		super();
 		initGUI();
-		System.out.println(sI.getBord());
+		
 	}
 	
 	private void initGUI() {
 		try {
+			
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			pack();
 			setSize(800, 685);
 			setVisible(true);
+			
+			//System.out.println(gc.dc.toonBord());
+			/*
+			System.out.println("----");
+			System.out.println(gc.dc.spelbordInterface.getBord().length);
+			System.out.println("----");
+			*/
+			
 			{
 					int xPos=0;
 					int yPos=0;
 					
-					for(int i=0;i<17;++i){//gc.dc.toonBord().length
-						for(int j=0;j<17;++j){ //gc.dc.toonBord().length
+					for(int i=0;i<gc.dc.spelbordInterface.getBord().length;++i){//gc.dc.toonBord().length
+						for(int j=0;j<gc.dc.spelbordInterface.getBord().length;++j){ //gc.dc.toonBord().length
 							spelbord[i][j] = new SpelBordVak();
 							if(i%2==0 && j%2==0){spelbord[i][j].pionVak(xPos, yPos);}
 							if(i%2==0 && j%2!=0){spelbord[i][j].muurVakVert(xPos, yPos);}

@@ -1,10 +1,9 @@
 package domein;
 
-public class SpelbordVGUI implements SpelbordInterface{
+public class SpelbordVGUI extends Spelbord{
 
 	@Override
 	public Vak[][] getBord() {
-		Spelbord spelbord = new Spelbord();
 		return getBord();
 	}
 

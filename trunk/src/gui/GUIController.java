@@ -32,6 +32,7 @@ public class GUIController{
 	public static void main(String args[]){
 		List<String> formLijst = new ArrayList<String>();
 		
+		
 		//dc.startNieuwSpel(2);
 		//toonBordz();
 		

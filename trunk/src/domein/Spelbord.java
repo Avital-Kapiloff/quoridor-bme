@@ -9,6 +9,7 @@ public class Spelbord{
 	public Spelbord(int size){
 		setSize(size);
 		spelBord = new Vak[getSize()][getSize()];
+		//System.out.println(getBord());
 	}
 
 	public Spelbord() {
@@ -54,7 +55,6 @@ public class Spelbord{
 	public Vak[][] getBord(){
 		return spelBord;
 	}
-	
 	
 	/*
 	private int[][] bord;
