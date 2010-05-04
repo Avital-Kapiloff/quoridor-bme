@@ -3,30 +3,37 @@ package domein;
 public class Pion
 {
 private int kleur;
+private int[] cord;
 
 
-	public Pion(){
-		
-	}
-
-	public Pion(int kleur,int[] positie)
+	public Pion(int kleur, int[] cord)
 	{
 		setKleur(kleur);
-	
+		setCord(cord);
 	}
-	
-	public void setKleur(int kleur)
-	{
-		this.kleur = kleur;
-	}
-	
-	public int getKleur() {
-		return kleur;
-	}
-	
-	
+		
+		public int getKleur() 
+		{
+			return kleur;
+		}
 
 
+		public void setKleur(int kleur) 
+		{
+			this.kleur = kleur;
+		}
 
-}
+
+		public int[] getCord() 
+		{
+			return cord;
+		}
+
+
+		public void setCord(int[] cord) 
+		{
+			this.cord = cord;
+		}
+	}
+	
 
