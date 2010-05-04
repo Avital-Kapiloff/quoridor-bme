@@ -1,6 +1,4 @@
 package domein;
-import gui.SpelBordVak;
-
 import java.util.*;
 
 import domein.Spelbord;

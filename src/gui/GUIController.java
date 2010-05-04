@@ -10,10 +10,11 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import domein.Domeincontroller;
+import domein.Vak;
 import gui.ReflectionController;
 import gui.GetScreenSize;
 
-public class GUIController {
+public class GUIController{
 	
 	public GUIController() {
 
@@ -119,16 +120,17 @@ public class GUIController {
 			++i;
 		}
 	} 
-	
+	/*
 	public static void toonBordz(){
 		
-		for(int i=0;i<dc.toonBord().length;i++){
-			for(int j=0;j<dc.toonBord().length;j++){
+		for(int i=0;i<.length;i++){
+			for(int j=0;j<dc.toonBord().length;j++){//dc.toonBord().length
 				//dc.toonBord()[i][j].setVakNr(i+j);
-				System.out.println(dc.toonBord()[i][j].isLeeg());
+				System.out.println(dc.toonBord()[i][j].isLeeg());//dc.toonBord()[i][j].isLeeg()
 			}	
 		}
 	}
+	*/
 	
 	public static List<String> getAllKleurenVanSpel() {
 		return allKleurenVanSpel;

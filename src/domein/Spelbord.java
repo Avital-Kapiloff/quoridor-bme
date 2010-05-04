@@ -1,6 +1,6 @@
 package domein;
 
-public class Spelbord {
+public class Spelbord{
 
 
 	private int size;
@@ -9,6 +9,9 @@ public class Spelbord {
 	public Spelbord(int size){
 		setSize(size);
 		spelBord = new Vak[getSize()][getSize()];
+	}
+
+	public Spelbord() {
 	}
 
 	public void genereerBord(){
@@ -44,7 +47,7 @@ public class Spelbord {
 		return size;
 	}
 
-	public void setSize(int size) {
+	private void setSize(int size) {
 		if(size>0 && size%2!=0){this.size = size;}else{this.size=17;}
 	}
 	

@@ -19,9 +19,9 @@ public void startSpel(){
 	spel.startSpel();
 }
 
-public Vak[][] toonBord(){
-	return spel.toonBord();
-}
+/*public Vak[][] toonBord(){
+	return spel.toonBord();			//via interface
+}*/
 public void verwijderKleur(String kleur) {
 	spel.verwijderKleur(kleur);
 	
