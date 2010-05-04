@@ -18,14 +18,7 @@ public List<String> toonBeschikbareKleuren(){
 public void voegSpelerToe(String naam, String kleur){
 	spel.voegSpelerToe(naam, kleur);
 }
-private ResourceController rc =  new ResourceController();
 
-public ResourceBundle getMessages(){
-	return rc.getMessages();
-}
-public void setMessages(int keuze){
-	rc.setMessages(keuze);
-}
 public void startSpel(){
 	spel.startSpel();
 }
