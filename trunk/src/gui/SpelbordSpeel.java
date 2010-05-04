@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import javax.swing.SwingUtilities;
 
+import domein.Spelbord;
+import domein.SpelbordInterface;
+import domein.SpelbordVGUI;
+
 
 /**
 * This code was edited or generated using CloudGarden's Jigloo
@@ -20,10 +24,12 @@ import javax.swing.SwingUtilities;
 * THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
 * LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
 */
-public class SpelbordSpeel extends javax.swing.JFrame {
+public class SpelbordSpeel extends javax.swing.JFrame{
+	SpelbordInterface sI = new SpelbordVGUI();
 	HarounsDebugger d = new HarounsDebugger();
 	GUIController gc = new GUIController();
-	SpelBordVak[][] spelbord = new SpelBordVak[gc.dc.toonBord().length][gc.dc.toonBord().length];
+	SpelBordVak[][] spelbord = new SpelBordVak[17][17];//[gc.dc.toonBord().length][gc.dc.toonBord().length];
+	
 	/**
 	* Auto-generated main method to display this JFrame
 	*/
@@ -40,6 +46,7 @@ public class SpelbordSpeel extends javax.swing.JFrame {
 	public SpelbordSpeel() {
 		super();
 		initGUI();
+		System.out.println(sI.getBord());
 	}
 	
 	private void initGUI() {
@@ -52,8 +59,8 @@ public class SpelbordSpeel extends javax.swing.JFrame {
 					int xPos=0;
 					int yPos=0;
 					
-					for(int i=0;i<gc.dc.toonBord().length;++i){
-						for(int j=0;j<gc.dc.toonBord().length;++j){
+					for(int i=0;i<17;++i){//gc.dc.toonBord().length
+						for(int j=0;j<17;++j){ //gc.dc.toonBord().length
 							spelbord[i][j] = new SpelBordVak();
 							if(i%2==0 && j%2==0){spelbord[i][j].pionVak(xPos, yPos);}
 							if(i%2==0 && j%2!=0){spelbord[i][j].muurVakVert(xPos, yPos);}
