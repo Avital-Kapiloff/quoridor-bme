@@ -1,6 +1,7 @@
 package domein;
 //import ui.TestSpel;
 import java.util.List;
+import java.util.ResourceBundle;
 
 public class Domeincontroller {
 	private Spel spel;
@@ -16,6 +17,14 @@ public List<String> toonBeschikbareKleuren(){
 }
 public void voegSpelerToe(String naam, String kleur){
 	spel.voegSpelerToe(naam, kleur);
+}
+private ResourceController rc =  new ResourceController();
+
+public ResourceBundle getMessages(){
+	return rc.getMessages();
+}
+public void setMessages(int keuze){
+	rc.setMessages(keuze);
 }
 public void startSpel(){
 	spel.startSpel();
