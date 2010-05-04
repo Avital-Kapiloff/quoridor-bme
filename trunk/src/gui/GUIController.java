@@ -4,6 +4,7 @@ import java.security.AllPermission;
 import java.text.Format;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -23,6 +24,7 @@ public class GUIController{
 	private GetScreenSize ss = new GetScreenSize();
 	public static Domeincontroller dc = new Domeincontroller();
 	public static ReflectionController rc = new ReflectionController("gui");
+	public static LanguageController lc = new LanguageController();
 	private static List<String> allKleurenVanSpel =new ArrayList<String>();
 	private List<String> lstKleur;
 	
@@ -139,5 +141,12 @@ public class GUIController{
 
 	public static void setAllKleurenVanSpel(List<String> allKleurenVanSpel) {
 		GUIController.allKleurenVanSpel = allKleurenVanSpel;
+	}
+	//------------------------------------------------------------------------------//
+	public ResourceBundle getMessages(){
+		return lc.getMessages();
+	}
+	public void setMessages(int keuze){
+		lc.setMessages(keuze);
 	}
 }
