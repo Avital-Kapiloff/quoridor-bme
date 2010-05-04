@@ -4,7 +4,7 @@ import java.util.*;
 import domein.Spelbord;
 import domein.Speler;
 
-public class Spel {
+public class Spel implements SpelbordInterface{
 		
 	private int aantalSpelers;
 	private List<String> beschikbareKleuren= new ArrayList<String>();
@@ -26,6 +26,8 @@ public class Spel {
 		
 	}
 	
+	public Spel() {}
+
 	private void setAantalSpelers(int aantalSpelers){
 		this.aantalSpelers = aantalSpelers;
 	}
@@ -126,6 +128,11 @@ public class Spel {
 	}
 	
 	public Vak[][] toonBord(){
+		return spelbord.getBord();
+	}
+
+	@Override
+	public Vak[][] getBord() {
 		return spelbord.getBord();
 	}
 	

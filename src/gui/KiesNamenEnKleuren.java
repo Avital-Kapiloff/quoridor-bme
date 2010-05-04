@@ -60,6 +60,9 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 	
 	private void initGUI() {
 		try {
+			
+			
+			
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			getContentPane().setLayout(null);
 			setTitle("Geef de namen in en kies een kleurtje!");

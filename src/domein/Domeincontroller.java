@@ -4,10 +4,12 @@ import java.util.List;
 
 public class Domeincontroller {
 	private Spel spel;
+	public SpelbordInterface spelbordInterface;
 
 public void startNieuwSpel(int aantalSpelers){
 	
 	spel = new Spel(aantalSpelers);
+	spelbordInterface= spel;
 }
 public List<String> toonBeschikbareKleuren(){
 	return spel.toonBeschikbareKleuren();
@@ -19,8 +21,17 @@ public void startSpel(){
 	spel.startSpel();
 }
 
-/*public Vak[][] toonBord(){
-	return spel.toonBord();			//via interface
+/*public String toonBord(){
+	StringBuilder f = new StringBuilder();
+	
+	for(int i =0;i<16;i++){
+		for(int j =0;i<16;j++){
+			f.append(spel.toonBord()[i][j].toString());
+		}
+	}
+	
+	
+	return f.toString();			//via interface
 }*/
 public void verwijderKleur(String kleur) {
 	spel.verwijderKleur(kleur);
