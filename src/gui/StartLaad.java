@@ -31,8 +31,9 @@ import javax.swing.SwingUtilities;
 */
 public class StartLaad extends javax.swing.JFrame {
 	private JButton btnStartSpel;
-	private GUIController gc = new GUIController();
+		private GUIController gc = new GUIController();
 	private JComboBox cboLangField;
+	private JButton btnLaadSpel;
 	private ButtonGroup buttonGroup1;
 	/**
 	* Auto-generated main method to display this JFrame
@@ -53,31 +54,44 @@ public class StartLaad extends javax.swing.JFrame {
 	}
 	
 	private void initGUI() {
-		try {
+	
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			getContentPane().setLayout(null);
 			{
 				btnStartSpel = new JButton();
 				getContentPane().add(btnStartSpel, "Center");
 				getContentPane().add(getcboLangField());
-				gc.dc.setMessages(3);
-				btnStartSpel.setText(gc.dc.getMessages().getString("START_GAME"));
-				btnStartSpel.setBounds(65, 133, 146, 50);
+				gc.lc.setMessages(3);
+				btnStartSpel.setText(gc.lc.getMessages().getString("START_GAME"));
+				btnStartSpel.setBounds(65, 92, 146, 50);
 				btnStartSpel.addMouseListener(new MouseAdapter() {
 					public void mousePressed(MouseEvent evt) {
 						btnStartSpelMousePressed(evt);
 					}
 				});
+				{
+					btnLaadSpel = new JButton();
+					getContentPane().add(btnLaadSpel, "Center");
+					getContentPane().add(getcboLangField());
+					gc.lc.setMessages(3);
+					btnLaadSpel.setText(gc.lc.getMessages().getString("LOAD_GAME"));
+					btnLaadSpel.setBounds(65, 173, 146, 50);
+					btnLaadSpel.addMouseListener(new MouseAdapter() {
+						public void mousePressed(MouseEvent evt) {
+							btnStartSpelMousePressed(evt);
+						}
+					});
+					
 				
 			}
 			pack();
 			setSize(300, 300);
 			setVisible(true);
 			setLocation(new java.awt.Point(gc.getMiddelWidth(this.getWidth()), gc.getMiddelHeight(this.getHeight())));
-		} catch (Exception e) {
-			e.printStackTrace();
+			}
 		}
-	}
+
+	
 	
 	private void btnStartSpelMousePressed(MouseEvent evt) {
 		gc.rc.setNextForm();
@@ -98,7 +112,7 @@ public class StartLaad extends javax.swing.JFrame {
 						new String[] { "Nederlands", "English", "Français" });
 			cboLangField = new JComboBox();
 			cboLangField.setModel(cboLangFieldModel);
-			cboLangField.setBounds(48, 37, 134, 23);
+			cboLangField.setBounds(65, 30, 146, 23);
 			cboLangField.setVisible(true);
 			cboLangField.addItemListener(new ItemListener() {public void itemStateChanged(ItemEvent evt) {	cboKlikFunctie(evt);}});
 		}
@@ -107,17 +121,20 @@ public class StartLaad extends javax.swing.JFrame {
 	
 	private void cboKlikFunctie(ItemEvent evt) {
 		if (cboLangField.getSelectedItem()=="English"){
-			gc.dc.setMessages(1);
-			btnStartSpel.setText(gc.dc.getMessages().getString("START_GAME"));
+			gc.lc.setMessages(1);
+			btnStartSpel.setText(gc.lc.getMessages().getString("START_GAME"));
+			btnLaadSpel.setText(gc.lc.getMessages().getString("LOAD_GAME"));
 			
 		}else{
 			if (cboLangField.getSelectedItem()=="Français"){
-				gc.dc.setMessages(2);
-				btnStartSpel.setText(gc.dc.getMessages().getString("START_GAME"));
+				gc.lc.setMessages(2);
+				btnStartSpel.setText(gc.lc.getMessages().getString("START_GAME"));
+				btnLaadSpel.setText(gc.lc.getMessages().getString("LOAD_GAME"));
 				
 			}else{
-				gc.dc.setMessages(3);
-				btnStartSpel.setText(gc.dc.getMessages().getString("START_GAME"));
+				gc.lc.setMessages(3);
+				btnStartSpel.setText(gc.lc.getMessages().getString("START_GAME"));
+				btnLaadSpel.setText(gc.lc.getMessages().getString("LOAD_GAME"));
 				
 			}
 		}
@@ -126,4 +143,6 @@ public class StartLaad extends javax.swing.JFrame {
 		//	gc.dc.(cboLangField);
 		//}		
 	}
+	
+
 }
