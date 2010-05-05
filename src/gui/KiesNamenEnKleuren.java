@@ -41,7 +41,6 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 	JButton btnBeginSpel;
 	int boxAfstand=40;
 
-
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -58,6 +57,7 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 		
 	}
 	
+	
 	private void initGUI() {
 		try {
 			
@@ -65,13 +65,13 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 			
 			setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			getContentPane().setLayout(null);
-			setTitle("Geef de namen in en kies een kleurtje!");
+			setTitle(gc.dc.getMessages().getString("ENTER_NAME_2"));
 			pack();
 			
 			{
 				lblGeefNamenVoor = new JLabel();
 				this.add(lblGeefNamenVoor);
-				lblGeefNamenVoor.setText("Geef de namen voor:");
+				lblGeefNamenVoor.setText(gc.dc.getMessages().getString("ENTER_NAME"));
 				lblGeefNamenVoor.setBounds(12, 12, 125, 16);
 			}
 			
@@ -100,7 +100,7 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 			//--Voeg alle labels toe
 			lblSpelernamen[i] = new JLabel();
 			getContentPane().add(lblSpelernamen[i]);
-			lblSpelernamen[i].setText("Speler " + (i+1));
+			lblSpelernamen[i].setText(gc.dc.getMessages().getString("PLAYER") + (i+1));
 			lblSpelernamen[i].setBounds(12, boxAfstand, 59, 16);
 			
 			//--Voeg alle textboxen toe
@@ -132,7 +132,7 @@ public class KiesNamenEnKleuren extends javax.swing.JFrame {
 
 				btnBeginSpel = new JButton();
 				this.add(btnBeginSpel);
-				btnBeginSpel.setText("Begin Spel!");
+				btnBeginSpel.setText(gc.dc.getMessages().getString("START_GAME")+"!");
 				btnBeginSpel.setBounds(35, boxAfstand, 284, 53);
 				btnBeginSpel.addMouseListener(new MouseAdapter() {
 					public void mouseClicked(MouseEvent evt) {
